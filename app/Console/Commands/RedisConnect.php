@@ -38,8 +38,17 @@ class RedisConnect extends Command
      */
     public function handle()
     {
-        for ($i = 0; $i < 1000; $i++) {
-            Redis::set('name."$i"', 'Taylor."$i"');
+        try {
+
+            for ($i = 0; $i < 100000; $i++) {
+                Redis::set($i, $i);
+                echo "$i\n";
+                sleep(1);
+            }
+
+        } catch (Exception $e) {
+            echo 'Caught exception: ',  $e->getMessage(),'<br>';
         }
     }
+        
 }
