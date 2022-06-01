@@ -38,10 +38,8 @@ class RedisConnect extends Command
      */
     public function handle()
     {
-        Redis::pipeline(function ($pipe) {
-            for ($i = 0; $i < 1000; $i++) {
-                $pipe->set("key:$i", $i);
-            }
-        });
+        for ($i = 0; $i < 1000; $i++) {
+            Redis::set('name."$i"', 'Taylor."$i"');
+        }
     }
 }
