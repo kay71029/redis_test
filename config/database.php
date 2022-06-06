@@ -117,6 +117,13 @@ return [
                     'database' => 0,
                 ],
             ],
+
+            'cache' => [
+                'host' => env('REDIS_SENTINEL_HOST', '127.0.0.1'),
+                'password' => env('REDIS_SENTINEL_PASSWORD'),
+                'port' => env('REDIS_SENTINEL_PORT', 6379),
+                'database' => env('REDIS_CACHE_DB', 1),
+            ],
         ],
 
         'options' => [
